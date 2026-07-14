@@ -382,7 +382,7 @@ const STR = {
     pageTitle: "Highlands Coffee Voucher 07/2026 – Mã giảm giá mới nhất",
     pageDesc: "Tổng hợp mã giảm giá Highlands Coffee, The Coffee House, Ding Tea mới nhất 07/2026.",
     nav: ["MÃ GIẢM GIÁ HIGHLANDS COFFEE","BÌNH LY HIGHLANDS","THE COFFEE HOUSE VOUCHER","DING TEA VOUCHER","REVIEW"],
-    navLinks: ["hl.html", "binh.html", "#", "#", "#"],
+    navLinks: ["index.html", "binh.html", "#", "#", "#"],
     heroAlt: "Highlands Hè Phiêu Êm - 100% Trúng Thưởng",
     highlandsTitle: "Mã giảm giá Highlands Coffee 07/2026",
     cta1: "Lấy ngay",
@@ -493,10 +493,11 @@ function render(){
   });
 
   // Nav
-  const navHtml = t.nav.map((item, index) => `<a href="${t.navLinks[index]}">${item}</a>`).join("");
+  const navLinks = t.navLinks || STR.vi.navLinks;
+  const navHtml = t.nav.map((item, index) => `<a href="${navLinks[index]}">${item}</a>`).join("");
   document.getElementById("nav-desktop").innerHTML = navHtml;
   document.getElementById("nav-mobile-list").innerHTML =
-    t.nav.map((item, index) => `<li><a href="${t.navLinks[index]}">${item}</a></li>`).join("");
+    t.nav.map((item, index) => `<li><a href="${navLinks[index]}">${item}</a></li>`).join("");
 
   // Grids
   document.getElementById("grid-highlands").innerHTML =
@@ -577,4 +578,3 @@ render();
 </script>
 </body>
 </html>
-
